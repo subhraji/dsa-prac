@@ -7,6 +7,7 @@ public class Main {
         list.insertFirst(6);
         list.insertFirst(8);
         list.insertFirst(17);
+        list.insertLast(19);
         list.display();
     }
 }
