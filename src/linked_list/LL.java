@@ -32,6 +32,54 @@ public class LL {
         size++;
     }
 
+
+    public void insertAt(int val, int index){
+        if(head == null){
+            insertFirst(val);
+            return;
+        }
+        if(index == size){
+            insertLast(val);
+            return;
+        }
+        Node newNode = new Node(val);
+        Node temp = head;
+
+        for (int i = 0; i<index-1; i++){
+            temp = temp.next;
+        }
+
+        newNode.next = temp.next;
+        temp.next = newNode;
+        size++;
+    }
+
+    public void deleteAt(int index){
+        if(head == null){
+            return;
+        }
+
+        if(index == 0){
+            Node temp = head;
+            head = head.next;
+
+            temp.next = null;
+
+            return;
+        }
+
+        Node temp = head;
+
+        for (int i = 0; i<index-1; i++){
+            temp = temp.next;
+        }
+        Node next = temp.next.next;
+        Node deleteAt = temp.next;
+
+        temp.next = next;
+        deleteAt.next = null;
+    }
+
     public void display(){
         Node temp = head;
         while (temp != null){
