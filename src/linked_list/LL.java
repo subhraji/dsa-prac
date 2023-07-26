@@ -109,6 +109,16 @@ public class LL {
         return;
     }
 
+    //odd after even linkedlist
+    public void oddAfterEvenLinkedList(){
+        if(head == null){
+            return;
+        }
+
+        Node oddHead = null;
+
+    }
+
     public void display(){
         Node temp = head;
         while (temp != null){
