@@ -80,6 +80,35 @@ public class LL {
         deleteAt.next = null;
     }
 
+    public void reverseLl(){
+        Node currentNode = head;
+        Node next = null;
+        Node prev = null;
+        while (currentNode != null){
+            next = currentNode.next;
+            currentNode.next = prev;
+            prev = currentNode;
+            currentNode = next;
+        }
+        head = prev;
+    }
+
+    public void findMid(){
+
+        if(head == null || head.next == null){
+            return;
+        }
+
+        Node fast = head;
+        Node slow = head;
+        while (fast.next != null && fast.next.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        System.out.println(slow.value);
+        return;
+    }
+
     public void display(){
         Node temp = head;
         while (temp != null){

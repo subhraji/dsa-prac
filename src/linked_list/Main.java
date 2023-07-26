@@ -6,8 +6,10 @@ public class Main {
         list.insertFirst(3);
         list.insertFirst(6);
         list.insertFirst(8);
+        list.insertFirst(9);
         list.insertFirst(17);
-        list.deleteAt(0);
         list.display();
+        System.out.println("\n");
+        list.findMid();
     }
 }
