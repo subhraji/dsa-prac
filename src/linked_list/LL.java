@@ -110,13 +110,54 @@ public class LL {
     }
 
     //odd after even linkedlist
-    public void oddAfterEvenLinkedList(){
+    public Node oddAfterEvenLinkedList(){
         if(head == null){
-            return;
+            return null;
         }
 
         Node oddHead = null;
+        Node oddTail = null;
+        Node evenHead = null;
+        Node evenTail = null;
+        Node temp = head;
 
+        while (temp != null) {
+            if (temp.value % 2 == 0) {
+                if (evenHead == null) {
+                    evenHead = temp;
+                    evenTail = temp;
+                } else {
+                    evenTail.next = temp;
+                    evenTail = temp;
+                }
+            } else {
+                if (oddHead == null) {
+                    oddHead = temp;
+                    oddTail = temp;
+                } else {
+                    oddTail.next = temp;
+                    oddTail = temp;
+                }
+            }
+
+            temp = temp.next;
+        }
+
+        if(oddHead == null){
+            evenTail.next = null;
+            return oddHead;
+        }
+
+        if (evenHead == null){
+            evenTail.next = null;
+            return evenHead;
+        }
+
+        oddTail.next = evenHead;
+        evenTail.next = null;
+
+
+        return oddHead;
     }
 
     public void display(){
