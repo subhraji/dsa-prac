@@ -5,12 +5,11 @@ public class Runner {
 
         LL list = new LL();
 
-        list.insertInt(5);
-        list.insertInt(10);
-        list.insertInt(3);
-        list.insertInt(7);
-        list.show();
-        list.deleteAtPos(1);
+        list.insertInt(1);
+        list.insertInt(0);
+        list.insertInt(2);
+        list.insertInt(1);
+        list.insertInt(2);
         list.show();
     }
 }
