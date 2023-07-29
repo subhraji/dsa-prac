@@ -3,6 +3,16 @@ package tulesko_ll;
 public class LL {
     Node head;
 
+    public void show() {
+        Node node = head;
+        while (node != null) {
+            System.out.print(node.data+" -> ");
+            node = node.next;
+        }
+        System.out.print("null");
+        System.out.println("");
+    }
+
     public void insertInt(int data){
         Node node = new Node();
         node.data = data;
@@ -74,13 +84,50 @@ public class LL {
         head = prev;
     }
 
-    public void show() {
-        Node node = head;
-        while (node != null) {
-            System.out.print(node.data+" -> ");
-            node = node.next;
+
+    //merge sorted linkedlist of 0s, 1s and 2s
+    public void mergeTwo0s1sLinkedList(){
+        Node zeroHead = new Node();
+        zeroHead.data = -1;
+        Node zeroTail = zeroHead;
+
+        Node oneHead = new Node();
+        oneHead.data = -1;
+        Node oneTail = oneHead;
+
+        Node twoHead = new Node();
+        twoHead.data = -1;
+        Node twoTail = twoHead;
+
+        Node temp = new Node();
+        temp = head;
+
+        while (temp != null){
+            if(temp.data == 0){
+                zeroTail.next = temp;
+                zeroTail = temp;
+            }
+
+            if(temp.data == 1){
+                oneTail.next = temp;
+                oneTail = temp;
+            }
+
+            if(temp.data == 2){
+                twoTail.next = temp;
+                twoTail = temp;
+            }
+            temp = temp.next;
         }
-        System.out.print("null");
-        System.out.println("");
+
+        if(oneHead.next != null){
+            zeroTail.next = oneHead.next;
+        }else {
+            zeroTail.next = twoHead.next;
+        }
+        oneTail.next = twoHead.next;
+        twoTail.next = null;
+
+        head = zeroHead.next;
     }
 }

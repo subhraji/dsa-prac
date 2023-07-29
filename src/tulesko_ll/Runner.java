@@ -11,5 +11,7 @@ public class Runner {
         list.insertInt(1);
         list.insertInt(2);
         list.show();
+        list.mergeTwo0s1sLinkedList();
+        list.show();
     }
 }
