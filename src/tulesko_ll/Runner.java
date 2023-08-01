@@ -5,13 +5,15 @@ public class Runner {
 
         LL list = new LL();
 
-        list.insertInt(1);
+        /*list.insertInt(1);
         list.insertInt(0);
         list.insertInt(2);
         list.insertInt(1);
         list.insertInt(2);
         list.show();
         list.mergeTwo0s1sLinkedList();
-        list.show();
+        list.show();*/
+
+        list.mergeTowSortedLinkedList();
     }
 }
