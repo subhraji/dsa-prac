@@ -1,5 +1,7 @@
 package tulesko_ll;
 
+import java.util.ArrayList;
+
 public class LL {
     Node head;
 
@@ -218,5 +220,104 @@ public class LL {
                 }
             }
         }
+    }
+
+    //check palindrome
+
+    //approach - |
+    public void checkPalindromeLinkedList(){
+        ArrayList<Integer> arr = new ArrayList<>();
+
+        Node l1 = new Node();
+        l1.data = 1;
+        Node l2 = new Node();
+        l2.data = 3;
+        Node l3 = new Node();
+        l3.data = 5;
+
+        l1.next = l2;
+        l2.next = l3;
+        l3.next = null;
+
+        Node temp = l1;
+        while (temp != null){
+            arr.add(temp.data);
+            temp = temp.next;
+        }
+
+        System.out.print(checkPalindromeArray(arr));
+    }
+
+    public Boolean checkPalindromeArray(ArrayList<Integer> arrayList){
+        Integer start = 0;
+        Integer end = arrayList.size()-1;
+
+        while (start <= end){
+            if (arrayList.get(start) != arrayList.get(end)){
+                return false;
+            }
+            start++;
+            end--;
+        }
+
+        return true;
+    }
+
+    //approach ||
+    public Boolean checkPalindrome2(){
+        Node l1 = new Node();
+        l1.data = 1;
+        Node l2 = new Node();
+        l2.data = 5;
+        Node l3 = new Node();
+        l3.data = 3;
+        Node l4 = new Node();
+        l4.data = 2;
+        Node l5 = new Node();
+        l5.data = 1;
+
+        l1.next = l2;
+        l2.next = l3;
+        l3.next = l4;
+        l4.next = l5;
+        l5.next = null;
+
+        Node mid = findMid(l1);
+        Node head1 = l1;
+        Node head2 = reverseLl(mid.next);
+
+        while (head2 != null){
+            if(head1.data != head2.data){
+                return false;
+            }
+            head1 = head1.next;
+            head2 = head2.next;
+        }
+        return true;
+    }
+
+    public Node reverseLl(Node head1){
+        Node curr = head1;
+        Node prev = null;
+        Node next = null;
+
+        while (curr != null){
+            next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+        return prev;
+    }
+
+    public Node findMid(Node head1){
+        Node slow = head1;
+        Node fast = head1.next;
+
+        while (fast != null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return slow;
     }
 }

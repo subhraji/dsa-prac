@@ -14,6 +14,6 @@ public class Runner {
         list.mergeTwo0s1sLinkedList();
         list.show();*/
 
-        list.mergeTowSortedLinkedList();
+        System.out.print(list.checkPalindrome2());
     }
 }
