@@ -6,7 +6,7 @@ public class Runner {
         LL list = new LL();
         AddTwoNumberByLL ll2 = new AddTwoNumberByLL();
         RemoveDuplicateEle ll3 = new RemoveDuplicateEle();
-
+        ReverseEveryKNode ll4 = new ReverseEveryKNode();
         /*list.insertInt(1);
         list.insertInt(0);
         list.insertInt(2);
@@ -17,6 +17,6 @@ public class Runner {
         list.show();*/
         //System.out.print(list.checkPalindrome2());
 
-        ll3.solve();
+        ll4.solve();
     }
 }
