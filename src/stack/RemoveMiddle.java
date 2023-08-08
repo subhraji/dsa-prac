@@ -25,6 +25,10 @@ public class RemoveMiddle {
             st.push(arr[i]);
         }
 
-        System.out.println(st);
+        //print stack
+        while (!st.empty()){
+            System.out.println(st.peek());
+            st.pop();
+        }
     }
 }
