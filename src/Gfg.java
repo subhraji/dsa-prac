@@ -1,37 +1,65 @@
+import java.util.ArrayList;
+
 public class Gfg {
     public static void main(String args[]){
-        int a[] = {1,3,4,6,7,8,9,0,40,50,60};
-        int k = 4;
-        int ko = 4;
-        int p = 0;
-        while (k<=a.length){
-            int s = p;
-            int e = k-1;
-            while (e>s){
-                int temp = a[s];
-                a[s] = a[e];
-                a[e] = temp;
-                s++;
-                e--;
-            }
+        int arr[] = {1,2,3,4,5,6};
+        int n = 6;
+        int s = 11;
+        System.out.println(subarraySum(arr, n, s));
+    }
 
-            p += k;
-            k += ko;
+    static ArrayList<Integer> subarraySum(int[] arr, int n, int s)
+    {
+        // Your code here
+        int sum = 0;
+        int i = 0;
+        ArrayList<Integer> newArray = new ArrayList<Integer>();
+
+        for(int j = 0; j<n; j++){
+            if(sum+arr[j]<=s){
+                sum += arr[j];
+            }else{
+                sum += arr[j];
+                while(sum>s){
+                    sum -= arr[i];
+                    i++;
+                }
+            }
+            if(sum == s){
+                newArray.add(i+1);
+                newArray.add(j+1);
+                return newArray;
+            }
         }
 
-        if(p-ko < a.length-1){
-            int s = p-ko;
-            int e = a.length-1;
-            while (e>s){
-                int temp = a[s];
-                a[s] = a[e];
-                a[e] = temp;
-                s++;
-                e--;
+        newArray.add(-1);
+        return newArray;
+    }
+
+
+    static ArrayList<Integer> subarraySum2(int[] arr, int n, int s)
+    {
+        ArrayList<Integer> result = new ArrayList<>();
+        int i = 0, j = 0, sum = 0;
+
+        while (j < n) {
+            sum += arr[j];
+
+            while (sum > s) {
+                sum -= arr[i];
+                i++;
             }
+            if ((sum == s) && (i<=j)) {
+                result.add(i + 1);
+                result.add(j + 1);
+                return result;
+            }
+
+            j++;
         }
 
-        printArray(a);
+        result.add(-1);
+        return result;
     }
 
     private static void printArray(int arr[]){
