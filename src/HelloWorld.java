@@ -11,13 +11,18 @@ public class HelloWorld {
             if(array[mid]<array[mid+1]){
                 s = mid+1;
             }else {
-                e = mid;
+                e = mid;                          b
             }
             mid = (s+e)/2;
         }
         System.out.println(s);*/
 
-        System.out.println(binarySearch());
+        //System.out.println(binarySearch());
+
+        int array[] = {1,2,3,4,5};
+        for(int i = 0; i<array.length; i++){
+            System.out.println(array[i]);
+        }
 
     }
 

@@ -2,7 +2,18 @@ package string;
 
 public class StringPalindrome {
     public static void main(String[] args) {
-        System.out.println(stringPalindrome("paoapi"));
+        lengthOfString();
+    }
+
+    static void lengthOfString(){
+        char str[] = {'p','a','i'};
+        int count = 0;
+
+        for(int i = 0; str[i] != 'i'; i++){
+            count++;
+        }
+
+        System.out.println(count);
     }
 
     static boolean stringPalindrome(String str){
