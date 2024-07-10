@@ -8,6 +8,8 @@ public class RectanglePattern {
     }
 
 
+
+
     private void drawRectangle(){
         int n = 4;
 
