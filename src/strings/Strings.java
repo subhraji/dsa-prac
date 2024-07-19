@@ -1,5 +1,8 @@
 package strings;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class Strings {
 
     public static void main(String[] args) {
@@ -169,5 +172,21 @@ public class Strings {
         }
 
         System.out.println(ans);
+    }
+
+    private void substring(){
+        String str = "school";
+        Set<String> uniqueSubstrings = new HashSet<>();
+
+        for (int i = 0; i < str.length(); i++) {
+            for (int j = i + 1; j <= str.length(); j++) {
+                String substring = str.substring(i, j);
+                uniqueSubstrings.add(substring);
+            }
+        }
+
+        for (String substring : uniqueSubstrings) {
+            System.out.println(substring);
+        }
     }
 }
