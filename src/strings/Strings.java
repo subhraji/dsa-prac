@@ -4,7 +4,7 @@ public class Strings {
 
     public static void main(String[] args) {
         Strings strings = new Strings();
-        strings.reverseEachWord();
+        strings.repetitionNumberString();
     }
 
     private void reverseString(){
@@ -144,6 +144,30 @@ public class Strings {
 
         sb.reverse();
         ans += sb;
+        System.out.println(ans);
+    }
+
+    private void repetitionNumberString(){
+        String str = "aabbdcc";
+        String ans = "";
+
+
+        for (int i = 0; i<str.length(); i++){
+            int count = 1;
+            for (int j = i+1; j<str.length(); j++){
+                if(str.charAt(i) == str.charAt(j)){
+                    count++;
+                    if(j==str.length()-1){
+                        ans += str.charAt(i)+""+count;
+                    }
+                }else {
+                    i = j-1;
+                    ans += str.charAt(i)+""+count;
+                    break;
+                }
+            }
+        }
+
         System.out.println(ans);
     }
 }
