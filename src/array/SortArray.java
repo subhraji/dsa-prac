@@ -65,7 +65,7 @@ public class SortArray {
     }
 
 
-    private void insertionSort(){
+    private void selectionSort(){
 
         int[] arr = {2,7,3,0,8,9,1};
 
@@ -80,6 +80,25 @@ public class SortArray {
             int temp = arr[smallest];
             arr[smallest] = arr[i];
             arr[i] = temp;
+        }
+
+        for (int i = 0; i< arr.length; i++){
+            System.out.print(arr[i]+", ");
+        }
+    }
+
+    private void insertionSort(){
+        int[] arr = {7,8,3,1,2};
+
+        for (int i = 1; i<arr.length; i++){
+            int current = arr[i];
+            int j = i-1;
+            while (j >= 0 && current < arr[j]){
+                arr[j+1] = arr[j];
+                j--;
+            }
+
+            arr[j+1] = current;
         }
 
         for (int i = 0; i< arr.length; i++){

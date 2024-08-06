@@ -106,7 +106,6 @@ public class LL {
             fast = fast.next.next;
         }
         System.out.println(slow.value);
-        return;
     }
 
     //odd after even linkedlist
