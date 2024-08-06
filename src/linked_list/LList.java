@@ -30,7 +30,7 @@ public class LList {
         list.printLList();
         list.reverseList();
         list.printLList();
-        //list.deleteLast();
+        list.deleteLast();
         /*list.deleteFirst();
         System.out.println();
         list.printLList();
